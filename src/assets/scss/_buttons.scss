@@ -1,0 +1,21 @@
+button {
+  font-family: 'Baloo 2', serif;
+  border: none;
+  &.btn-login {
+    font-weight: 800;
+    font-size: 1.8rem;
+    border: none;
+    background: var(--color-white);
+    min-height: 7.5rem;
+    border-radius: 1.5rem 3rem 3rem 3rem;
+  }
+  &.btn-user {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

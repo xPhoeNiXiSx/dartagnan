@@ -1,0 +1,31 @@
+@import './variables';
+@import './buttons';
+@import './headings';
+@import './helpers';
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--color-primary);
+  font-family: 'Baloo 2', Arial, serif;
+}
+
+.wrapper {
+  padding: 4.8rem;
+  min-height: 100vh;
+  min-height: 100dvh;
+  &.is-login {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
