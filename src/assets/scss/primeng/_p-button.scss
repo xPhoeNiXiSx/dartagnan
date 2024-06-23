@@ -1,0 +1,28 @@
+p-button {
+  .p-button {
+    font-size: 1.6rem;
+    color: var(--color-primary);
+    font-weight: 700;
+  }
+
+  &.p-button-user {
+    .p-button {
+      background: transparent;
+      padding: 0;
+      width: 5rem;
+      height: 5rem;
+      border-radius: 50%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+}
+

@@ -3,6 +3,8 @@
 @import './headings';
 @import './helpers';
 
+@import './primeng/p-button';
+
 * {
   box-sizing: border-box;
 }
@@ -23,7 +25,7 @@ body {
   padding: 4.8rem;
   min-height: 100vh;
   min-height: 100dvh;
-  max-width: 48rem;
+  max-width: var(--max-width-wrapper);
   margin: 0 auto;
   background: var(--color-primary);
   &.is-login {
