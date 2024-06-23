@@ -2,6 +2,16 @@
   <img class="login-logo" src="assets/img/logo.svg" alt="">
   <div class="login-footer">
     <h1 class="text-center">Bienvenue</h1>
-    <button (click)="gotToHome()" class="btn-login">Se connecter</button>
+    <!-- <button (click)="gotToHome()" class="btn-login">Accueil</button> -->
+  </div>
+  <div class="login-form">
+    <form (ngSubmit)="login()">
+      <!-- <label for="username">Username</label> -->
+      <input type="text" id="username" [(ngModel)]="username" name="username" required>
+      <!-- <label for="password">Password</label> -->
+      <input type="password" id="password" [(ngModel)]="password" name="password" required>
+      <button type="submit">Login</button>
+      <p *ngIf="errorMessage">{{ errorMessage }}</p>
+    </form>
   </div>
 </div>
