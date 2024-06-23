@@ -34,4 +34,19 @@
     }
   }
 
+  &__score {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-secondary);
+    color: var(--color-primary);
+    height: 3.6rem;
+    border-radius: 0 0 3rem 3rem;
+    padding: 0 3.2rem;
+    font-weight: 700;
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
 }
