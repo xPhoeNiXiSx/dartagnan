@@ -5,13 +5,13 @@
     <!-- <button (click)="gotToHome()" class="btn-login">Accueil</button> -->
   </div>
   <div class="login-form">
-    <form (ngSubmit)="login()">
-      <!-- <label for="username">Username</label> -->
-      <input type="text" id="username" [(ngModel)]="username" name="username" required>
-      <!-- <label for="password">Password</label> -->
-      <input type="password" id="password" [(ngModel)]="password" name="password" required>
+    <form (ngSubmit)="login()" class="flex flex-column gap-2">
+      <label for="username">Username</label>
+      <input type="text" pInputText [(ngModel)]="username" required id="username" name="username" />
+      <label for="password">Password</label>
+      <input type="password" pInputText [(ngModel)]="password" required id="password" name="password" />
       <button type="submit">Login</button>
-      <p *ngIf="errorMessage">{{ errorMessage }}</p>
+      <p-button *ngIf="errorMessage" label="{{ errorMessage }}" />
     </form>
   </div>
 </div>

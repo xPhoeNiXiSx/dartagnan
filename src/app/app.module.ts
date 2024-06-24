@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './pages/login/login.component';
 import { AuthService } from './services/auth/auth.service';
 import { AuthGuard } from './auth.guard';
 import { SecuredLayoutComponent } from './layout/secured-layout/secured-layout.component';
@@ -13,7 +12,6 @@ import { SecuredLayoutComponent } from './layout/secured-layout/secured-layout.c
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     SecuredLayoutComponent
   ],
   imports: [
