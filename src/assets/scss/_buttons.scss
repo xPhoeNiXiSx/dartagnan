@@ -9,13 +9,32 @@ button {
     min-height: 7.5rem;
     border-radius: 1.5rem 3rem 3rem 3rem;
   }
-  &.btn-user {
-    width: 5rem;
-    height: 5rem;
-    border-radius: 50%;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+  &.btn {
+    border: none;
+    background: none;
+
+    &.btn-play {
+      position: fixed;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 10rem;
+      height: 10rem;
+      padding: 0;
+      .play-bg {
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+      .play-center {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translateX(-50%) translateY(-50%);
+      }
+    }
+
   }
+
 }

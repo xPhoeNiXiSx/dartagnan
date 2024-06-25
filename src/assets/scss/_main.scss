@@ -2,6 +2,9 @@
 @import './buttons';
 @import './headings';
 @import './helpers';
+@import './form-field';
+
+@import './primeng/p-button';
 
 * {
   box-sizing: border-box;
@@ -15,7 +18,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background: var(--color-primary);
+  background: var(--color-primary-light);
   font-family: 'Baloo 2', Arial, serif;
 }
 
@@ -23,6 +26,9 @@ body {
   padding: 4.8rem;
   min-height: 100vh;
   min-height: 100dvh;
+  max-width: var(--max-width-wrapper);
+  margin: 0 auto;
+  background: var(--color-primary);
   &.is-login {
     display: flex;
     flex-direction: column;
