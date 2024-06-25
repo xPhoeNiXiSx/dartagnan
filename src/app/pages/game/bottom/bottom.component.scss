@@ -1,0 +1,9 @@
+.game-footer {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  .p-button-next {
+    flex: 1;
+  }
+}
