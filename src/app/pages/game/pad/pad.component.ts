@@ -28,7 +28,7 @@ export class PadComponent {
     } else if (!this.game.scoreBoards[this.indexCurrentPlayer].throws[this.game.numberRound].dart2) {
       this.game.scoreBoards[this.indexCurrentPlayer].throws[this.game.numberRound].dart2 = resultDart;
       this.game.scoreBoards[this.indexCurrentPlayer].throws[this.game.numberRound].scoreDart2 = score;
-    } else {
+    } else if (!this.game.scoreBoards[this.indexCurrentPlayer].throws[this.game.numberRound].dart3) {
       this.game.scoreBoards[this.indexCurrentPlayer].throws[this.game.numberRound].dart3 = resultDart;
       this.game.scoreBoards[this.indexCurrentPlayer].throws[this.game.numberRound].scoreDart3 = score;
     }

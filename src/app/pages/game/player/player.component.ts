@@ -40,9 +40,4 @@ export class PlayerComponent implements OnChanges {
       }
     }
   }
-
-  log() {
-    console.log(this.game);
-    console.log(this.indexCurrentPlayer);
-  }
 }
