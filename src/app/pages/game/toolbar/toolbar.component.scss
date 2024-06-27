@@ -11,9 +11,11 @@
   background: var(--color-white);
   min-height: 6rem;
   max-width: var(--max-width-wrapper);
+  min-width: 100vw;
+  min-width: 100dvw;
   &__item {
     flex: 1;
-    &:last-child {
+    &:last-of-type {
       display: flex;
       justify-content: flex-end;
     }
