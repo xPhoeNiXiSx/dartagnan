@@ -2,10 +2,11 @@
   <img class="login-logo" src="assets/img/logo.svg" alt="">
   <div class="login-footer">
     <h1 class="text-center">Bienvenue</h1>
-    <!-- <button (click)="gotToHome()" class="btn-login">Accueil</button> -->
+    <p-button (click)="goToHome()" class="btn-create-account" label="Créer un compte" />
+    <p-button (click)="goToHome()" class="btn-login" label="Se connecter" />
   </div>
-  <div class="login-form">
-    <form (ngSubmit)="login()" class="flex flex-column gap-2">
+  <!--<div class="login-form">
+     <form (ngSubmit)="login()" class="flex flex-column gap-2">
       <label for="username">Username</label>
       <input type="text" pInputText [(ngModel)]="username" required id="username" name="username" />
       <label for="password">Password</label>
@@ -13,5 +14,5 @@
       <button type="submit">Login</button>
       <p-button *ngIf="errorMessage" label="{{ errorMessage }}" />
     </form>
-  </div>
+  </div>-->
 </div>

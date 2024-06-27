@@ -13,6 +13,7 @@
   max-width: var(--max-width-wrapper);
   min-width: 100vw;
   min-width: 100dvw;
+
   &__item {
     flex: 1;
     &:last-of-type {
@@ -48,7 +49,12 @@
     padding: 0 3.2rem;
     font-weight: 700;
     font-size: 1.8rem;
+    line-height: 1.8rem;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60vw;
   }
 
 }

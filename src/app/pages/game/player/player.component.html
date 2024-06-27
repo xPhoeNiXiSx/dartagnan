@@ -4,7 +4,12 @@
     <div class="game-player__avatar">
       <img src="assets/img/{{currentPlayer.picture}}" alt="">
     </div>
-    <p>{{currentPlayer.nom}} {{currentPlayer.prenom}}</p>
+    <div class="game-player__position">
+      <span>2</span> ième
+    </div>
+    <span class="game-player__id">
+      {{currentPlayer.nom}} {{currentPlayer.prenom}}
+    </span>
     <div class="game-player__players">1/2</div>
   </div>
 </div>
@@ -25,17 +30,18 @@
       </div>
     </div>
   </div>
-  <div class="game-score">
-    <p>Volée n°5</p>
-    <div class="game-score__block">
-      <div class="game-score__values">
-        <span>221</span>
-        <span class="game-score__remaining">176</span>
+  <div class="game-flight">
+    <p class="game-flight__title">Volée n°5</p>
+    <div class="game-flight__block">
+      <div class="game-flight__done">
+        <span>T15</span>
+        <span>-</span>
+        <span>-</span>
       </div>
-      <div class="game-score__goal">
-        <span>T20</span>
-        <span>D18</span>
-        <span>D2</span>
+      <div class="game-flight__darts">
+        <span class="game-flight__dart is-done"></span>
+        <span class="game-flight__dart"></span>
+        <span class="game-flight__dart"></span>
       </div>
     </div>
   </div>

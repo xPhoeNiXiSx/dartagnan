@@ -12,6 +12,7 @@ import { ButtonModule } from 'primeng/button';
     FormsModule,
     InputTextModule,
     ButtonModule,
+    ButtonModule,
   ],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
@@ -33,6 +34,10 @@ export class LoginComponent implements OnInit {
     if (!this.authService.login(this.username, this.password)) {
       this.errorMessage = 'Mot de passe ou identifiant invalide';
     }
+  }
+
+  public goToHome(): void {
+    this.router.navigate(['/home']);
   }
 
 }

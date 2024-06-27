@@ -3,6 +3,7 @@ import { ToolbarComponent } from '../toolbar/toolbar.component';
 import { PadComponent } from '../pad/pad.component';
 import { PlayerComponent } from '../player/player.component';
 import { BottomComponent } from '../bottom/bottom.component';
+import { ScoreComponent } from '../score/score.component';
 import { Player } from 'src/app/models/player.model';
 
 @Component({
@@ -13,11 +14,13 @@ import { Player } from 'src/app/models/player.model';
     PadComponent,
     PlayerComponent,
     BottomComponent,
+    ScoreComponent,
   ],
   templateUrl: './play.component.html',
   styleUrls: ['./play.component.scss']
 })
 export class PlayComponent implements OnInit {
+  public isScoreOpen = false;
 
   player1: Player;
   player2: Player;
@@ -30,12 +33,16 @@ export class PlayComponent implements OnInit {
     this.player1.nom = 'Fraquet';
     this.player1.prenom = 'Thomas';
     this.player1.picture = 'user1.png';
-    
+
     this.player2 = new Player();
     this.player1.idPlayer = 2;
     this.player2.nom = 'Semelin';
     this.player2.prenom = 'Jérémie';
     this.player2.picture = 'user2.png';
+  }
+
+  public openScore(): void {
+    this.isScoreOpen = true;
   }
 
 }
