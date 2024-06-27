@@ -29,7 +29,7 @@ export class PlayerComponent implements OnChanges {
   }
 
   getRankCurrentPlayer() {
-    const sortedScores = this.game.listScores.sort();
+    const sortedScores = [...this.game.listScores].sort();
 
     for (const [index, score] of sortedScores.entries()) {
       if (score === this.game.listScores[this.indexCurrentPlayer]) {
@@ -39,5 +39,10 @@ export class PlayerComponent implements OnChanges {
         this.rankCurrentPlayer = 0;
       }
     }
+  }
+
+  log() {
+    console.log(this.game);
+    console.log(this.indexCurrentPlayer);
   }
 }

@@ -2,7 +2,7 @@
   <app-toolbar></app-toolbar>
   <app-player [game]="game" [indexCurrentPlayer]="indexCurrentPlayer"></app-player>
   <app-pad [game]="game" [indexCurrentPlayer]="indexCurrentPlayer"></app-pad>
-  <app-bottom [nextPlayer]="game.listPlayers[(indexCurrentPlayer + 1) % game.listPlayers.length]"></app-bottom>
+  <app-bottom [game]="game" [indexNextPlayer]="(indexCurrentPlayer + 1) % game.listPlayers.length"></app-bottom>
   <button (click)="openScore()">ouvrir</button>
 </div>
 <app-score [isOpen]="isScoreOpen"></app-score>

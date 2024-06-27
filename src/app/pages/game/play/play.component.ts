@@ -8,6 +8,7 @@ import { Player } from 'src/app/models/player.model';
 import { Game } from 'src/app/models/game.model';
 import { Scoreboard } from 'src/app/models/scoreboard.model';
 import { Throw } from 'src/app/models/throw.model';
+import { NextPlayerService } from 'src/app/services/next-player.service';
 
 @Component({
   selector: 'app-play',
@@ -33,7 +34,9 @@ export class PlayComponent implements OnInit {
 
   indexCurrentPlayer = 0;
 
-  constructor() { }
+  constructor(
+    private nextPlayerService: NextPlayerService,
+  ) { }
 
   ngOnInit(): void {
     this.player1 = new Player();
@@ -43,7 +46,7 @@ export class PlayComponent implements OnInit {
     this.player1.picture = 'user1.png';
 
     this.player2 = new Player();
-    this.player1.idPlayer = 2;
+    this.player2.idPlayer = 2;
     this.player2.nom = 'Semelin';
     this.player2.prenom = 'Jérémie';
     this.player2.picture = 'user2.png';
@@ -56,12 +59,41 @@ export class PlayComponent implements OnInit {
     this.scoreBoardPlayer2 = new Scoreboard();
     this.scoreBoardPlayer2.idScoreboard = 2;
     this.scoreBoardPlayer2.idPlayer = 2;
+    this.scoreBoardPlayer2.throws = [new Throw()];
 
     this.game = new Game();
     this.game.idGame = 1;
     this.game.listPlayers = [this.player1, this.player2];
     this.game.listScores = [501, 501];
     this.game.scoreBoards = [this.scoreBoardPlayer1, this.scoreBoardPlayer2];
+
+    this.nextPlayerService.nextPlayer$.subscribe(() => {
+      if (this.game.listScores[this.indexCurrentPlayer]
+        - this.game.scoreBoards[this.indexCurrentPlayer].throws[this.game.numberRound].scoreDart1
+        - this.game.scoreBoards[this.indexCurrentPlayer].throws[this.game.numberRound].scoreDart2
+        - this.game.scoreBoards[this.indexCurrentPlayer].throws[this.game.numberRound].scoreDart3
+        < this.game.numberRound
+      ) {
+        this.game.scoreBoards[this.indexCurrentPlayer].throws[this.game.numberRound].remainingScore;
+      } else {
+        this.game.scoreBoards[this.indexCurrentPlayer].throws[this.game.numberRound].remainingScore = this.game.listScores[this.indexCurrentPlayer]
+          - this.game.scoreBoards[this.indexCurrentPlayer].throws[this.game.numberRound].scoreDart1
+          - this.game.scoreBoards[this.indexCurrentPlayer].throws[this.game.numberRound].scoreDart2
+          - this.game.scoreBoards[this.indexCurrentPlayer].throws[this.game.numberRound].scoreDart3;
+      }
+        
+      this.game.listScores[this.indexCurrentPlayer] = this.game.scoreBoards[this.indexCurrentPlayer].throws[this.game.numberRound].remainingScore;
+      
+      if (this.indexCurrentPlayer + 1 === this.game.listPlayers.length) {
+        this.game.numberRound ++;
+        
+        for (let i = 0; i < this.game.listPlayers.length; i++) {
+          this.game.scoreBoards[i].throws.push(new Throw());
+        }
+      }
+
+      this.indexCurrentPlayer = (this.indexCurrentPlayer + 1) % this.game.listPlayers.length;
+    });
   }
 
   public openScore(): void {
