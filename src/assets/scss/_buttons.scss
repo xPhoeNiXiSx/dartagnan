@@ -10,10 +10,10 @@ button {
       position: fixed;
       bottom: 1rem;
       left: 50%;
-      transform: translateX(-50%);
       width: 10rem;
       height: 10rem;
       padding: 0;
+      animation: rotateInfinite 8s linear 0s infinite;
       .play-bg {
         position: absolute;
         left: 0;
@@ -29,4 +29,13 @@ button {
 
   }
 
+}
+
+@keyframes rotateInfinite {
+  from {
+    transform: translateX(-50%) rotate(0);
+  }
+  to {
+    transform: translateX(-50%) rotate(360deg);
+  }
 }
