@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 1rem;
+  padding: 0 2rem;
   .pad-btn {
     border-radius: .5rem;
     background: var(--color-white);

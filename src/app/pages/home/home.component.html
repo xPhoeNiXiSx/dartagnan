@@ -1,22 +1,24 @@
-<header class="header">
-  <img src="assets/img/logo-h.svg" alt="">
-  <p-button (click)="op.toggle($event)" class="p-button-user">
-    <img src="assets/img/user1.png" alt="">
-  </p-button>
-</header>
-<p-overlayPanel #op>
-  <div class="flex flex-column gap-3 w-25rem">
-    <p-button label="Déconnexion" (click)="logout()"></p-button>
-  </div>
-</p-overlayPanel>
-<main class="content">
-  <h1>Bonjour <span>Thomas</span></h1>
-  <button class="btn-login"></button>
-  <h2>Dernières parties jouées</h2>
-</main>
-<footer class="footer">
-  <button (click)="play()" class="btn btn-play">
-    <img class="play-bg" src="assets/img/play-bg.svg" alt="">
-    <img class="play-center" src="assets/img/play-center.svg" alt="">
-  </button>
-</footer>
+<div class="wrapper">
+  <header class="header">
+    <img src="assets/img/logo-h.svg" alt="">
+    <p-button (click)="op.toggle($event)" class="p-button-user">
+      <img src="assets/img/user1.png" alt="">
+    </p-button>
+  </header>
+  <p-overlayPanel #op>
+    <div class="flex flex-column gap-3 w-25rem">
+      <p-button label="Déconnexion" (click)="logout()"></p-button>
+    </div>
+  </p-overlayPanel>
+  <main class="content">
+    <h1>Bonjour <span>Thomas</span></h1>
+    <button class="btn-login"></button>
+    <h2>Dernières parties jouées</h2>
+  </main>
+  <footer class="footer">
+    <button (click)="play()" class="btn btn-play">
+      <img class="play-bg" src="assets/img/play-bg.svg" alt="">
+      <img class="play-center" src="assets/img/play-center.svg" alt="">
+    </button>
+  </footer>
+</div>
