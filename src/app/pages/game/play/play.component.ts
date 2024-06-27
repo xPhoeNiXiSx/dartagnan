@@ -5,6 +5,9 @@ import { PlayerComponent } from '../player/player.component';
 import { BottomComponent } from '../bottom/bottom.component';
 import { ScoreComponent } from '../score/score.component';
 import { Player } from 'src/app/models/player.model';
+import { Game } from 'src/app/models/game.model';
+import { Scoreboard } from 'src/app/models/scoreboard.model';
+import { Throw } from 'src/app/models/throw.model';
 
 @Component({
   selector: 'app-play',
@@ -22,8 +25,13 @@ import { Player } from 'src/app/models/player.model';
 export class PlayComponent implements OnInit {
   public isScoreOpen = false;
 
+  game: Game;
   player1: Player;
   player2: Player;
+  scoreBoardPlayer1: Scoreboard;
+  scoreBoardPlayer2: Scoreboard;
+
+  indexCurrentPlayer = 0;
 
   constructor() { }
 
@@ -39,6 +47,21 @@ export class PlayComponent implements OnInit {
     this.player2.nom = 'Semelin';
     this.player2.prenom = 'Jérémie';
     this.player2.picture = 'user2.png';
+
+    this.scoreBoardPlayer1 = new Scoreboard();
+    this.scoreBoardPlayer1.idScoreboard = 1;
+    this.scoreBoardPlayer1.idPlayer = 1;
+    this.scoreBoardPlayer1.throws = [new Throw()];
+
+    this.scoreBoardPlayer2 = new Scoreboard();
+    this.scoreBoardPlayer2.idScoreboard = 2;
+    this.scoreBoardPlayer2.idPlayer = 2;
+
+    this.game = new Game();
+    this.game.idGame = 1;
+    this.game.listPlayers = [this.player1, this.player2];
+    this.game.listScores = [501, 501];
+    this.game.scoreBoards = [this.scoreBoardPlayer1, this.scoreBoardPlayer2];
   }
 
   public openScore(): void {

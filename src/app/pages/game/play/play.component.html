@@ -1,8 +1,8 @@
 <div class="wrapper-game">
   <app-toolbar></app-toolbar>
-  <app-player [currentPlayer]="player1"></app-player>
-  <app-pad></app-pad>
-  <app-bottom [nextPlayer]="player2"></app-bottom>
+  <app-player [game]="game" [indexCurrentPlayer]="indexCurrentPlayer"></app-player>
+  <app-pad [game]="game" [indexCurrentPlayer]="indexCurrentPlayer"></app-pad>
+  <app-bottom [nextPlayer]="game.listPlayers[(indexCurrentPlayer + 1) % game.listPlayers.length]"></app-bottom>
   <button (click)="openScore()">ouvrir</button>
 </div>
 <app-score [isOpen]="isScoreOpen"></app-score>
