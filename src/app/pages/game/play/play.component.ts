@@ -26,14 +26,16 @@ export class PlayComponent implements OnInit {
 
   ngOnInit(): void {
     this.player1 = new Player();
+    this.player1.idPlayer = 1;
     this.player1.nom = 'Fraquet';
     this.player1.prenom = 'Thomas';
-    this.player1.urlPicture = 'https://i.pinimg.com/280x280_RS/1e/24/b1/1e24b12cecdd0c081a1df42543830f28.jpg';
+    this.player1.picture = 'user1.png';
     
     this.player2 = new Player();
+    this.player1.idPlayer = 2;
     this.player2.nom = 'Semelin';
     this.player2.prenom = 'Jérémie';
-    this.player2.urlPicture = 'https://cdn.aviz.co/medias/pictures/1ee0c2cd-fa8c-6c32-a445-e3caf9693121-l.webp';
+    this.player2.picture = 'user2.png';
   }
 
 }

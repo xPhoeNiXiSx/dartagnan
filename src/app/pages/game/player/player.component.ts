@@ -10,6 +10,6 @@ import { Player } from 'src/app/models/player.model';
 })
 export class PlayerComponent {
 
-  @Input() player: Player;
+  @Input() currentPlayer: Player;
 
 }
