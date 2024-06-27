@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
+import { Player } from 'src/app/models/player.model';
 
 @Component({
   selector: 'app-bottom',
@@ -11,5 +12,7 @@ import { ButtonModule } from 'primeng/button';
   styleUrl: './bottom.component.scss'
 })
 export class BottomComponent {
+
+  @Input() nextPlayer: Player;
 
 }
