@@ -24,6 +24,25 @@ p-button {
     }
   }
 
+  &.btn-login .p-button {
+    font-weight: 800;
+    font-size: 1.8rem;
+    border: none;
+    background: var(--color-white);
+    min-height: 7.5rem;
+    border-radius: 1.5rem 3rem 3rem 3rem;
+  }
+
+  &.btn-create-account .p-button {
+    font-weight: 800;
+    font-size: 1.8rem;
+    border: none;
+    background: var(--color-white);
+    color: var(--color-secondary);
+    min-height: 7.5rem;
+    border-radius: 3rem 3rem 3rem 1.5rem;
+  }
+
   &.p-button-user {
     .p-button {
       background: transparent;
