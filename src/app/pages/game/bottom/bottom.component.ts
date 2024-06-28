@@ -16,7 +16,7 @@ import { NextPlayerService } from 'src/app/services/next-player.service';
 export class BottomComponent implements OnChanges {
 
   @Input() game: Game;
-  @Input() indexNextPlayer: number;
+  @Input() indexCurrentPlayer: number;
 
   nextPlayer: Player;
 
@@ -25,8 +25,8 @@ export class BottomComponent implements OnChanges {
   ) { }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes.indexNextPlayer.currentValue !== changes.indexNextPlayer.previousValue) {
-      this.nextPlayer = this.game.listPlayers[this.indexNextPlayer];
+    if (changes.indexCurrentPlayer.currentValue !== changes.indexCurrentPlayer.previousValue) {
+      this.nextPlayer = this.game.listPlayers[(this.indexCurrentPlayer + 1) % this.game.listPlayers.length];
     }
   }
 
@@ -34,4 +34,16 @@ export class BottomComponent implements OnChanges {
     this.nextPlayerService.nextPlayer$.next();
   }
 
+  clicRemoveLastShot() {
+    if (this.game.scoreBoards[this.indexCurrentPlayer].throws[this.game.numberRound].dart3 !== undefined) {
+      this.game.scoreBoards[this.indexCurrentPlayer].throws[this.game.numberRound].dart3 = undefined;
+      this.game.scoreBoards[this.indexCurrentPlayer].throws[this.game.numberRound].scoreDart3 = 0;
+    } else if (this.game.scoreBoards[this.indexCurrentPlayer].throws[this.game.numberRound].dart2 !== undefined) {
+      this.game.scoreBoards[this.indexCurrentPlayer].throws[this.game.numberRound].dart2 = undefined;
+      this.game.scoreBoards[this.indexCurrentPlayer].throws[this.game.numberRound].scoreDart2 = 0;
+    } else {
+      this.game.scoreBoards[this.indexCurrentPlayer].throws[this.game.numberRound].dart1 = undefined;
+      this.game.scoreBoards[this.indexCurrentPlayer].throws[this.game.numberRound].scoreDart1 = 0;
+    }
+  }
 }

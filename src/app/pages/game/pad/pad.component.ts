@@ -20,6 +20,8 @@ export class PadComponent {
     let resultDart = score + '';
     if (score === 50) {
       resultDart = 'Bull';
+    } else if (score === 0) {
+      resultDart = 'X';
     }
 
     if (!this.game.scoreBoards[this.indexCurrentPlayer].throws[this.game.numberRound].dart1) {
@@ -33,5 +35,4 @@ export class PadComponent {
       this.game.scoreBoards[this.indexCurrentPlayer].throws[this.game.numberRound].scoreDart3 = score;
     }
   }
-
 }
