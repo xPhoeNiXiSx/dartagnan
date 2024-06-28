@@ -16,9 +16,21 @@ export class PadComponent {
   @Input() game: Game;
   @Input() indexCurrentPlayer: number;
 
+  isDouble: boolean = false;
+  isTriple: boolean = false;
+
   scoreDart(score: number) {
     let resultDart = score + '';
-    if (score === 50) {
+
+    if (score >= 1 && score <= 20) {
+      if (this.isDouble) {
+        resultDart = 'D' + resultDart;
+        score = score * 2;
+      } else if (this.isTriple) {
+        resultDart = 'T' + resultDart;
+        score = score * 3;
+      }
+    } else if (score === 50) {
       resultDart = 'Bull';
     } else if (score === 0) {
       resultDart = 'X';
@@ -34,5 +46,8 @@ export class PadComponent {
       this.game.scoreBoards[this.indexCurrentPlayer].throws[this.game.numberRound].dart3 = resultDart;
       this.game.scoreBoards[this.indexCurrentPlayer].throws[this.game.numberRound].scoreDart3 = score;
     }
+
+    this.isDouble = false;
+    this.isTriple = false;
   }
 }
