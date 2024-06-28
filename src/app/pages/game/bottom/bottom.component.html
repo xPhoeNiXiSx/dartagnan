@@ -1,6 +1,6 @@
 <div class="game-footer">
-  <p-button icon="pi pi-chevron-left" [rounded]="true" [text]="true" severity="secondary"/>
-  <p-button [raised]="true" class="p-button-next">
+  <p-button icon="pi pi-chevron-left" [rounded]="true" [text]="true" severity="secondary" (click)="clicRemoveLastShot()" [disabled]="this.game.scoreBoards[this.indexCurrentPlayer].throws[this.game.numberRound].dart1 === undefined"/>
+  <p-button [raised]="true" class="p-button-next" (click)="clickNextPlayer()">
     <span>Joueur suivant</span>
     <img class="img" src="assets/img/{{nextPlayer.picture}}" alt="">
   </p-button>

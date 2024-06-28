@@ -1,37 +1,20 @@
 <div class="pad">
-  <button type="button" class="pad-btn pad-double">
+  <button type="button" class="pad-btn pad-double" (click)="isDouble = !isDouble">
     Double
   </button>
-  <button type="button" class="pad-btn pad-triple">
+  <button type="button" class="pad-btn pad-triple" (click)="isTriple = !isTriple">
     Triple
   </button>
-  <button type="button" class="pad-btn pad-number">1</button>
-  <button type="button" class="pad-btn pad-number">2</button>
-  <button type="button" class="pad-btn pad-number">3</button>
-  <button type="button" class="pad-btn pad-number">4</button>
-  <button type="button" class="pad-btn pad-number">5</button>
-  <button type="button" class="pad-btn pad-number">6</button>
-  <button type="button" class="pad-btn pad-number">7</button>
-  <button type="button" class="pad-btn pad-number">8</button>
-  <button type="button" class="pad-btn pad-number">9</button>
-  <button type="button" class="pad-btn pad-number">10</button>
-  <button type="button" class="pad-btn pad-number">11</button>
-  <button type="button" class="pad-btn pad-number">12</button>
-  <button type="button" class="pad-btn pad-number">13</button>
-  <button type="button" class="pad-btn pad-number">14</button>
-  <button type="button" class="pad-btn pad-number">15</button>
-  <button type="button" class="pad-btn pad-number">16</button>
-  <button type="button" class="pad-btn pad-number">17</button>
-  <button type="button" class="pad-btn pad-number">18</button>
-  <button type="button" class="pad-btn pad-number">19</button>
-  <button type="button" class="pad-btn pad-number">20</button>
-  <button type="button" class="pad-btn pad-25">
+  <button type="button" class="pad-btn pad-number" *ngFor="let number of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]" (click)="scoreDart(number)">
+    {{number}}
+  </button>
+  <button type="button" class="pad-btn pad-25" (click)="scoreDart(25)">
     25
   </button>
-  <button type="button" class="pad-btn pad-null">
+  <button type="button" class="pad-btn pad-null" (click)="scoreDart(0)">
     0
   </button>
-  <button type="button" class="pad-btn pad-50">
+  <button type="button" class="pad-btn pad-50" (click)="scoreDart(50)">
     50
   </button>
 </div>

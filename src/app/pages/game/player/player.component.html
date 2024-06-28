@@ -5,12 +5,14 @@
       <img src="assets/img/{{currentPlayer.picture}}" alt="">
     </div>
     <div class="game-player__position">
-      <span>2</span> ième
+      <span>{{rankCurrentPlayer}}</span> 
+      <ng-container *ngIf="rankCurrentPlayer === 1">er</ng-container>
+      <ng-container *ngIf="rankCurrentPlayer > 1">ème</ng-container>
     </div>
     <span class="game-player__id">
       {{currentPlayer.nom}} {{currentPlayer.prenom}}
     </span>
-    <div class="game-player__players">1/2</div>
+    <div class="game-player__players">{{indexCurrentPlayer + 1}}/{{game.listPlayers.length}}</div>
   </div>
 </div>
 <div class="game-player__stats">
@@ -19,8 +21,8 @@
     <div class="game-score__block">
       <div class="game-score__values">
         <span class="game-score__remaining">
-          <span class="game-score__starting">221</span>
-          176
+          <span class="game-score__starting">{{game.listScores[indexCurrentPlayer]}}</span>
+          {{game.listScores[indexCurrentPlayer] - this.game.scoreBoards[this.indexCurrentPlayer].throws[this.game.numberRound].scoreDart1 - this.game.scoreBoards[this.indexCurrentPlayer].throws[this.game.numberRound].scoreDart2 - this.game.scoreBoards[this.indexCurrentPlayer].throws[this.game.numberRound].scoreDart3}}
         </span>
       </div>
       <div class="game-score__goal">
@@ -31,17 +33,34 @@
     </div>
   </div>
   <div class="game-flight">
-    <p class="game-flight__title">Volée n°5</p>
+    <p class="game-flight__title">Volée n°{{this.game.numberRound + 1}}</p>
     <div class="game-flight__block">
       <div class="game-flight__done">
-        <span>T15</span>
-        <span>-</span>
-        <span>-</span>
+        <span *ngIf="this.game.scoreBoards[this.indexCurrentPlayer].throws[this.game.numberRound].dart1">
+          {{this.game.scoreBoards[this.indexCurrentPlayer].throws[this.game.numberRound].dart1}}
+        </span>
+        <span *ngIf="!this.game.scoreBoards[this.indexCurrentPlayer].throws[this.game.numberRound].dart1">
+          -
+        </span>
+
+        <span *ngIf="this.game.scoreBoards[this.indexCurrentPlayer].throws[this.game.numberRound].dart2">
+          {{this.game.scoreBoards[this.indexCurrentPlayer].throws[this.game.numberRound].dart2}}
+        </span>
+        <span *ngIf="!this.game.scoreBoards[this.indexCurrentPlayer].throws[this.game.numberRound].dart2">
+          -
+        </span>
+
+        <span *ngIf="this.game.scoreBoards[this.indexCurrentPlayer].throws[this.game.numberRound].dart3">
+          {{this.game.scoreBoards[this.indexCurrentPlayer].throws[this.game.numberRound].dart3}}
+        </span>
+        <span *ngIf="!this.game.scoreBoards[this.indexCurrentPlayer].throws[this.game.numberRound].dart3">
+          -
+        </span>
       </div>
       <div class="game-flight__darts">
-        <span class="game-flight__dart is-done"></span>
-        <span class="game-flight__dart"></span>
-        <span class="game-flight__dart"></span>
+        <span class="game-flight__dart" [class.is-done]="this.game.scoreBoards[this.indexCurrentPlayer].throws[this.game.numberRound].dart1"></span>
+        <span class="game-flight__dart" [class.is-done]="this.game.scoreBoards[this.indexCurrentPlayer].throws[this.game.numberRound].dart2"></span>
+        <span class="game-flight__dart" [class.is-done]="this.game.scoreBoards[this.indexCurrentPlayer].throws[this.game.numberRound].dart3"></span>
       </div>
     </div>
   </div>
